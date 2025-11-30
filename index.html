@@ -42,7 +42,6 @@
         </select>
     </div>
 
-    <!-- カード特攻チェック -->
     <div class="input-row use-card-row">
         <label class="checkbox-label">
             <input type="checkbox" id="use-card">
@@ -75,7 +74,6 @@
 
 </section>
 
-<!-- タブ -->
 <div id="result-tabs">
     <button class="tab-btn active" data-tab="normal">カード特攻なし</button>
     <button class="tab-btn" data-tab="card">カード特攻あり</button>
@@ -100,15 +98,23 @@
 <!-- JS本体 -->
 <script src="js/script.js"></script>
 
-<!-- ★ TinyCounter（アクセスカウンター） -->
-<script src="https://tinycounter.com/bootstrap/tinycounter.js"></script>
+<!-- TinyCounter 読込（defer 付き） -->
+<script defer src="https://tinycounter.com/bootstrap/tinycounter.js"></script>
+
+<!-- TinyCounter 初期化 -->
 <script>
-TinyCounter.init({
-    site: "fes-calc",   // ← IDはそのままでOK
-    mode: "pageview",
-    onUpdate: (data) => {
-        document.getElementById("today-count").textContent = data.today;
-        document.getElementById("total-count").textContent = data.total;
+window.addEventListener("load", () => {
+    if (typeof TinyCounter !== "undefined") {
+        TinyCounter.init({
+            site: "fes-calc",
+            mode: "pageview",
+            onUpdate: data => {
+                document.getElementById("today-count").textContent = data.today;
+                document.getElementById("total-count").textContent = data.total;
+            }
+        });
+    } else {
+        console.error("TinyCounter が読み込まれませんでした");
     }
 });
 </script>
