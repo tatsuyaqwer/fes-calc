@@ -13,15 +13,14 @@
     <p class="credit">制作者：たつや。 @fes_calculation</p>
 
     <div id="access-counter">
-    本日のアクセス：<span data-tinycounter="today"></span> ／
-    累計：<span data-tinycounter="total"></span>
-</div>
-
+        本日のアクセス：<span id="today-count">--</span> ／ 
+        累計：<span id="total-count">--</span>
+    </div>
 </header>
 
 <section id="input-panel">
 
-    <h2>条件入力</h2>
+    <h2>入力</h2>
 
     <div class="input-row">
         <label for="penlight">ペンライト：</label>
@@ -43,7 +42,7 @@
         </select>
     </div>
 
-    <!-- ★ ここが今回修正したブロック ★ -->
+    <!-- カード特攻チェック -->
     <div class="input-row use-card-row">
         <label class="checkbox-label">
             <input type="checkbox" id="use-card">
@@ -59,7 +58,7 @@
     </div>
 
     <div class="input-row">
-        <label>
+        <label class="checkbox-label">
             <input type="checkbox" id="use-5step">
             特攻は5%刻みにする
         </label>
@@ -76,6 +75,7 @@
 
 </section>
 
+<!-- タブ -->
 <div id="result-tabs">
     <button class="tab-btn active" data-tab="normal">カード特攻なし</button>
     <button class="tab-btn" data-tab="card">カード特攻あり</button>
@@ -97,18 +97,20 @@
 
 </section>
 
+<!-- JS本体 -->
 <script src="js/script.js"></script>
 <script src="js/counter.js"></script>
+
+<!-- ★ TinyCounter（アクセスカウンター） -->
 <script src="https://tinycounter.com/bootstrap/tinycounter.js"></script>
 <script>
 TinyCounter.init({
-    site: "fes-calc",   // ← 好きなID（英数字）にしてOK
+    site: "fes-calc",   // ← このIDは自由に変更可能
     mode: "pageview"
 });
 </script>
 
 </body>
 </html>
-
 
 
