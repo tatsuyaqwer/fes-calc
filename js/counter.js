@@ -1,6 +1,6 @@
 console.log("counter.js 読込OK");
 
-// ★ あなたの Worker API エンドポイント
+// ★ あなたの Cloudflare Worker エンドポイント
 const API_URL = "https://fes-counter.s-n-summer-0718.workers.dev/";
 
 // Worker へ GET → {today, total} を返す
