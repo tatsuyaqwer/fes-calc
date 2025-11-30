@@ -1,0 +1,191 @@
+:root {
+    --bg: #f7f2fc;
+    --panel: #ffffff;
+    --accent: #b998e6;
+    --accent-dark: #8b6cc8;
+    --text-main: #333;
+    --text-sub: #666;
+    --border: #e0d6f3;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --font: "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text-main);
+    padding: 20px;
+}
+
+/* タイトル */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: var(--accent-dark);
+}
+
+.credit {
+    color: var(--text-sub);
+    margin: 0;
+}
+
+#access-counter {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+/* 入力パネル */
+#input-panel {
+    max-width: 800px;
+    margin: 0 auto 25px;
+    background: var(--panel);
+    padding: 20px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.input-row {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-row label {
+    width: 180px;
+}
+
+.input-row input[type="number"],
+.input-row select {
+    padding: 8px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+.note {
+    margin-left: 180px;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.note-small {
+    margin-left: 5px;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+#calc-btn {
+    margin-left: 180px;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: 0.15s;
+}
+
+#calc-btn:hover {
+    background: var(--accent-dark);
+}
+
+/* タブ */
+#result-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tab-btn {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    cursor: pointer;
+    margin: 0 4px;
+    font-size: 1rem;
+    color: var(--text-sub);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent-dark);
+}
+
+/* タブ内容 */
+.tab-content {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--panel);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    text-align: left;
+}
+
+#normal-list,
+#card-list {
+    margin-top: 15px;
+    white-space: pre-wrap;
+    font-family: "Roboto Mono", monospace;
+}
+
+/* 結果ブロック */
+.result-block {
+    border: 1px solid var(--border);
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: var(--radius);
+    background: #faf7ff;
+    text-align: left !important;     /* ← カード特攻ありのセンター寄り防止 */
+}
+
+/* -------- カード特攻チェック行（今回の本命）-------- */
+.use-card-row {
+    display: flex;
+    flex-direction: column;  /* 説明文を必ず下へ */
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;     /* ← “る” の強制改行を防ぐ */
+    font-size: 1rem;
+}
+
+.card-note {
+    margin-left: 26px;       /* チェックボックス位置合わせ */
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    line-height: 1.4;
+}
+
+.pattern-line {
+    margin-left: 0;
+    padding-left: 0;
+    line-height: 1.6;
+    white-space: normal;
+}
