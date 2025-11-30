@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>乃木坂46リズムフェスティバル ポイント調整用計算ツール</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header id="header">
+    <h1>乃木坂46リズムフェスティバル<br>ポイント調整用計算ツール</h1>
+    <p class="credit">制作者：たつや。 @fes_calculation</p>
+
+    <div id="access-counter">
+        本日のアクセス：<span id="today-count">--</span> ／ 
+        累計：<span id="total-count">--</span>
+    </div>
+</header>
+
+<section id="input-panel">
+
+    <h2>条件入力</h2>
+
+    <div class="input-row">
+        <label for="penlight">ペンライト：</label>
+        <select id="penlight">
+            <option value="0">無（0%）</option>
+            <option value="0.5">有（+50%）</option>
+        </select>
+    </div>
+
+    <div class="input-row">
+        <label for="trophy">トロフィー：</label>
+        <select id="trophy">
+            <option value="0">無（0%）</option>
+            <option value="0.1">青（+10%）</option>
+            <option value="0.2">緑（+20%）</option>
+            <option value="0.4">銅（+40%）</option>
+            <option value="0.7">銀（+70%）</option>
+            <option value="1.0">金（+100%）</option>
+        </select>
+    </div>
+
+    <!-- ★ ここが今回修正したブロック ★ -->
+    <div class="input-row use-card-row">
+        <label class="checkbox-label">
+            <input type="checkbox" id="use-card">
+            カード特攻を使用する
+        </label>
+        <p class="card-note">（※カード特攻を追加して1曲だけの一致パターンを検索します）</p>
+    </div>
+
+    <div class="input-row">
+        <label for="card-bonus">カード特攻合計：</label>
+        <input type="number" id="card-bonus" value="0" min="0" max="3000"> %
+        <span class="note-small">（0%〜3000%）</span>
+    </div>
+
+    <div class="input-row">
+        <label>
+            <input type="checkbox" id="use-5step">
+            特攻は5%刻みにする
+        </label>
+    </div>
+
+    <div class="input-row">
+        <label for="remaining">残りポイント：</label>
+        <input type="number" id="remaining" placeholder="(例: 2222)">
+    </div>
+
+    <div class="input-row">
+        <button id="calc-btn">計算する</button>
+    </div>
+
+</section>
+
+<div id="result-tabs">
+    <button class="tab-btn active" data-tab="normal">カード特攻なし</button>
+    <button class="tab-btn" data-tab="card">カード特攻あり</button>
+</div>
+
+<section id="result-section">
+
+    <div id="normal-result" class="tab-content active">
+        <h2>カード特攻なしの結果</h2>
+        <div id="normal-summary"></div>
+        <div id="normal-list"></div>
+    </div>
+
+    <div id="card-result" class="tab-content">
+        <h2>カード特攻ありの結果</h2>
+        <div id="card-summary"></div>
+        <div id="card-list"></div>
+    </div>
+
+</section>
+
+<script src="js/script.js"></script>
+<script src="js/counter.js"></script>
+
+</body>
+</html>
