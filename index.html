@@ -99,18 +99,19 @@
 
 <!-- JS本体 -->
 <script src="js/script.js"></script>
-<script src="js/counter.js"></script>
 
 <!-- ★ TinyCounter（アクセスカウンター） -->
-<script src="https://tinycounter.com/count.js"></script>
+<script src="https://tinycounter.com/bootstrap/tinycounter.js"></script>
 <script>
 TinyCounter.init({
-    site: "fes-calc",
-    mode: "pageview"
+    site: "fes-calc",   // ← IDはそのままでOK
+    mode: "pageview",
+    onUpdate: (data) => {
+        document.getElementById("today-count").textContent = data.today;
+        document.getElementById("total-count").textContent = data.total;
+    }
 });
 </script>
 
-
 </body>
 </html>
-
